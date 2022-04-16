@@ -23,4 +23,7 @@ const router = AdminJSExpress.buildRouter(adminJS)
 import {port} from './Config/index.js'
 const app = express();
 app.use(adminJS.options.rootPath, router)
+
+app.use('/admin/resources/public/',express.static('Public'));
+app.use('/uploads', express.static('uploads'));
 app.listen(port, () => console.log('AdminJS is under localhost:8080/admin'))
